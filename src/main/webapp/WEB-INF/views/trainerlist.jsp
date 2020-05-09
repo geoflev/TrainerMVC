@@ -15,11 +15,11 @@
 		<c:forEach items="${trainers}" var="trainer">
 			<tr>
                             <!-- edit: http://localhost:8081/edit/{id} -->
-                            <td><a href="<c:url value='${editurl}/${trainer.id}' />">${trainer.id}</a></td>
+                            <td><a href="<c:url value='/${editurl}/${trainer.id}' />">${trainer.id}</a></td>
                             <td>${trainer.firstName}</td>
                             <td>${trainer.lastName}</td>
                             <td>${trainer.subject}</td>
-                            <td><a href="<c:url value='${deleteurl}/${trainer.id}' />">delete</a></td>
+                            <td><a href="<c:url value='/${deleteurl}/${trainer.id}' />">delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>

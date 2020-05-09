@@ -27,4 +27,13 @@ public class TrainerImpl implements ITrainer {
         return dao.delete(id);
     }
     
+    public boolean update(Trainer trainer) {        
+        dao.update(trainer);
+        return true;
+    }
+
+    public Trainer findById(int id) {
+        return dao.findById(id);
+    }
+    
 }

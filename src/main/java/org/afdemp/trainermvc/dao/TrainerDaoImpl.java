@@ -30,4 +30,23 @@ public class TrainerDaoImpl extends AbstractDao<Integer, Trainer> implements ITr
         return false;
     }
     
+    public Trainer findById(int id) {
+        Trainer s = getByKey(id);
+        if(s != null) {
+            return s;
+        }
+        return null;
+    }
+
+    public boolean update(Trainer trainer) {
+        Trainer db_trainer = findById(trainer.getId());
+        if(trainer != null) {
+            db_trainer.setFirstName(trainer.getFirstName());
+            db_trainer.setLastName(trainer.getLastName());
+            db_trainer.setSubject(trainer.getSubject());
+            return save(db_trainer);
+        } else
+            return false;
+    }
+    
 }

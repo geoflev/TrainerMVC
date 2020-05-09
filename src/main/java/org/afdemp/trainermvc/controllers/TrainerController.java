@@ -18,6 +18,7 @@ public class TrainerController {
     private String listurl = "list";
     private String editurl = "edit";
     private String deleteurl = "delete";
+    private String updateurl = "update";
     
     @Autowired
     ITrainer trainerService;
@@ -66,6 +67,22 @@ public class TrainerController {
         } else {
             view.addAttribute("msg", new String("Not Deleted!"));
         }
+        return("redirect:/list");
+    }
+    
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editTrainer(ModelMap view, @PathVariable int id) {
+        Trainer trainer = trainerService.findById(id);
+        view.addAttribute("trainer", trainer);
+        view.addAttribute("updateurl", updateurl);
+        return("edittrainer");
+    }
+    
+    // store edit / update for an existing student
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateTrainer(ModelMap view, Trainer trainer) {
+        trainerService.update(trainer);
+        view.addAttribute("msg", new String(""));
         return("redirect:/list");
     }
     
