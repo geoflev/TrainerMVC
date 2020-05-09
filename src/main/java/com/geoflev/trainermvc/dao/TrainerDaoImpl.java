@@ -1,7 +1,7 @@
-package org.afdemp.trainermvc.dao;
+package com.geoflev.trainermvc.dao;
 
 import java.util.List;
-import org.afdemp.trainermvc.entities.Trainer;
+import com.geoflev.trainermvc.entities.Trainer;
 import org.hibernate.Criteria;
 import org.springframework.stereotype.Repository;
 

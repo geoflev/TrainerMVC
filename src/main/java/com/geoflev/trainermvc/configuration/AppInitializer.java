@@ -1,4 +1,4 @@
-package org.afdemp.trainermvc.configuration;
+package com.geoflev.trainermvc.configuration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

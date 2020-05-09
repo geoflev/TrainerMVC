@@ -1,4 +1,4 @@
-package org.afdemp.trainermvc.entities;
+package com.geoflev.trainermvc.entities;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -113,7 +113,7 @@ public class Trainer implements Serializable {
 
     @Override
     public String toString() {
-        return "org.afdemp.studentmvc.entities.Trainers[ id=" + id + " ]";
+        return "com.geoflev.trainermvc.entities.Trainers[ id=" + id + " ]";
     }
     
 }

@@ -23,34 +23,12 @@
             tr:nth-child(even) {
                 background-color: #dddddd;
             }
-            button {
-                border-radius: 4px;
-            }
-            .submit{
-                background-color: green;
-                font-size: 22px;
-            }
-            .button1{
-                background-color: yellow;
-                padding: 3px 8px;
-                display: block;
-                margin: auto;
-            }
-            .button2{
-                background-color: red;
-                padding: 3px 8px;
-                display: block;
-                margin: auto;
-            }
             h1
             {
                 text-align: center;
             }
             .header{
                 font-weight: bold;
-            }
-            .header{
-                text-align: center;
             }
         </style>
 
@@ -68,14 +46,14 @@
                     <td>${trainer.firstName}</td>
                     <td>${trainer.lastName}</td>
                     <td>${trainer.subject}</td>
-                    <td><button class="button1" ><a href="<c:url value='/${editurl}/${trainer.id}' />">Edit</a></button></td>
-                    <td><button class="button2" ><a href="<c:url value='/${deleteurl}/${trainer.id}' />">Delete</a></button></td>
+                    <td><button type="submit" class="btn btn-warning"><a href="<c:url value='/${editurl}/${trainer.id}' /> ">Edit</a></button></td>
+                    <td><button type="submit" class="btn btn-danger"><a href="<c:url value='/${deleteurl}/${trainer.id}' />">Delete</a></button></td>
                 </tr>
             </c:forEach>
         </table>
         </br>
         </br>
         <div id="msg">${msg}</div>
-        <button class="submit"><a href="<c:url value='/new' />">Add</a></button>
+        <button type="submit" class="btn btn-success"><a href="<c:url value='/new' />">Add</a></button>
     </body>
 </html>

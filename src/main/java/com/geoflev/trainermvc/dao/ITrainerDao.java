@@ -1,9 +1,9 @@
-package org.afdemp.trainermvc.services;
+package com.geoflev.trainermvc.dao;
 
 import java.util.List;
-import org.afdemp.trainermvc.entities.Trainer;
+import com.geoflev.trainermvc.entities.Trainer;
 
-public interface ITrainer {
+public interface ITrainerDao {
     public List<Trainer> findAllTrainers();
     public boolean save(Trainer trainer);
     public boolean delete(int id);

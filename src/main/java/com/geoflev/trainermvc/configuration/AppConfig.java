@@ -1,4 +1,4 @@
-package org.afdemp.trainermvc.configuration;
+package com.geoflev.trainermvc.configuration;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "org.afdemp.trainermvc")
+@ComponentScan(basePackages = "com.geoflev.trainermvc")
 public class AppConfig {
 	
 	@Bean

@@ -1,4 +1,4 @@
-package org.afdemp.trainermvc.configuration;
+package com.geoflev.trainermvc.configuration;
 
 import java.util.Properties;
 
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({"org.afdemp.trainermvc.configuration"})
+@ComponentScan({"com.geoflev.trainermvc.configuration"})
 @PropertySource(value = {"classpath:application.properties"})
 public class HibernateConfiguration {
 
@@ -29,7 +29,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[]{"org.afdemp.trainermvc.entities"});
+        sessionFactory.setPackagesToScan(new String[]{"com.geoflev.trainermvc.entities"});
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }

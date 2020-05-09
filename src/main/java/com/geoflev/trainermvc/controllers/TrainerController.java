@@ -1,7 +1,7 @@
-package org.afdemp.trainermvc.controllers;
+package com.geoflev.trainermvc.controllers;
 
 import java.util.List;
-import org.afdemp.trainermvc.entities.Trainer;
+import com.geoflev.trainermvc.entities.Trainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.afdemp.trainermvc.services.ITrainer;
+import com.geoflev.trainermvc.services.ITrainer;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
 
 @Controller
 @RequestMapping("/")
@@ -45,7 +47,10 @@ public class TrainerController {
     }
     
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String saveTrainer(ModelMap view, Trainer trainer) {
+    public String saveTrainer(@Valid Trainer trainer, BindingResult result, ModelMap view) {
+        if (result.hasErrors()) {
+            return "newtrainer";
+        }
         if(trainerService.save(trainer)) {
             view.addAttribute("message", new String("Trainer saved successfully!"));
         }
@@ -74,8 +79,13 @@ public class TrainerController {
         return("edittrainer");
     }
     
+    
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String updateTrainer(ModelMap view, Trainer trainer) {
+    public String updateTrainer(@Valid Trainer trainer, BindingResult result, ModelMap view) {
+        
+        if (result.hasErrors()) {
+            return "edittrainer";
+        }
         trainerService.update(trainer);
         view.addAttribute("msg", new String(""));
         return("redirect:/list");

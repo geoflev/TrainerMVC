@@ -1,8 +1,8 @@
-package org.afdemp.trainermvc.services;
+package com.geoflev.trainermvc.services;
 
 import java.util.List;
-import org.afdemp.trainermvc.dao.TrainerDaoImpl;
-import org.afdemp.trainermvc.entities.Trainer;
+import com.geoflev.trainermvc.dao.TrainerDaoImpl;
+import com.geoflev.trainermvc.entities.Trainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

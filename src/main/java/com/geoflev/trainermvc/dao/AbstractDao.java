@@ -1,4 +1,4 @@
-package org.afdemp.trainermvc.dao;
+package com.geoflev.trainermvc.dao;
 
 import java.io.Serializable;
 
