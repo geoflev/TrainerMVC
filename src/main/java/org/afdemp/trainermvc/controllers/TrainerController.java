@@ -26,7 +26,6 @@ public class TrainerController {
     @Autowired
     MessageSource messageSource;
     
-    // index
     @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
     public String listAllTrainers(ModelMap view, @RequestParam(required = false) String msg) {
         List<Trainer> trainers  = trainerService.findAllTrainers();
@@ -37,7 +36,6 @@ public class TrainerController {
         return("trainerlist");
     }
     
-    // get form for new student
     @RequestMapping("/new")
     public String newTrainer(ModelMap view) {
         Trainer trainer = new Trainer();
@@ -46,26 +44,24 @@ public class TrainerController {
         return("newtrainer");
     }
     
-    // post form for new student
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String saveTrainer(ModelMap view, Trainer trainer) {
         if(trainerService.save(trainer)) {
-            view.addAttribute("message", new String("All good!"));
+            view.addAttribute("message", new String("Trainer saved successfully!"));
         }
         else {
-            view.addAttribute("message", new String("All wrong!"));
+            view.addAttribute("message", new String("Unable to save Trainer!"));
         }
         view.addAttribute("listurl", listurl);
-        return("newtrainer");
+        return("redirect:/list");
     }
     
-    // delete for an existing student
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteTrainer(ModelMap view, @PathVariable int id) {
         if(trainerService.delete(id)) {
-            view.addAttribute("msg", new String("Deleted Successfully!"));
+            view.addAttribute("msg", new String("Trainer deleted!"));
         } else {
-            view.addAttribute("msg", new String("Not Deleted!"));
+            view.addAttribute("msg", new String("Unable to delete Trainer!"));
         }
         return("redirect:/list");
     }
@@ -78,7 +74,6 @@ public class TrainerController {
         return("edittrainer");
     }
     
-    // store edit / update for an existing student
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String updateTrainer(ModelMap view, Trainer trainer) {
         trainerService.update(trainer);
