@@ -19,13 +19,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Trainer implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id", nullable = false)
     private Integer id;
-    
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -41,7 +41,6 @@ public class Trainer implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "subject", nullable = false, length = 45)
     private String subject;
-    
 
     public Trainer() {
     }
@@ -50,12 +49,12 @@ public class Trainer implements Serializable {
         this.id = id;
     }
 
-    public Trainer(Integer id, String firstName, String lastName,String subject) {
+    public Trainer(Integer id, String firstName, String lastName, String subject) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.subject = subject;
-        
+
     }
 
     public Integer getId() {
@@ -90,8 +89,6 @@ public class Trainer implements Serializable {
         this.subject = subject;
     }
 
-    
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -115,5 +112,5 @@ public class Trainer implements Serializable {
     public String toString() {
         return "com.geoflev.trainermvc.entities.Trainers[ id=" + id + " ]";
     }
-    
+
 }

@@ -10,9 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Service("trainerService")
 @Transactional
 public class TrainerImpl implements ITrainer {
+
     @Autowired
     TrainerDaoImpl dao;
-    
+
     @Override
     public List<Trainer> findAllTrainers() {
         List<Trainer> trainers = dao.findAllTrainers();
@@ -26,8 +27,8 @@ public class TrainerImpl implements ITrainer {
     public boolean delete(int id) {
         return dao.delete(id);
     }
-    
-    public boolean update(Trainer trainer) {        
+
+    public boolean update(Trainer trainer) {
         dao.update(trainer);
         return true;
     }
@@ -35,5 +36,5 @@ public class TrainerImpl implements ITrainer {
     public Trainer findById(int id) {
         return dao.findById(id);
     }
-    
+
 }
