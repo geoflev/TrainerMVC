@@ -11,28 +11,31 @@ public class TrainerDaoImpl extends AbstractDao<Integer, Trainer> implements ITr
     @Override
     public List<Trainer> findAllTrainers() {
         Criteria criteria = createEntityCriteria();
-	return (List<Trainer>) criteria.list();
+        return (List<Trainer>) criteria.list();
     }
 
     public boolean save(Trainer trainer) {
         boolean notSaved = persist(trainer);
-        if(notSaved) return false;
+        if (notSaved) {
+            return false;
+        }
         return true;
     }
 
     public boolean delete(int id) {
         Trainer s = getByKey(id);
-        if(s != null) {
+        if (s != null) {
             delete(s);
-            if(getByKey(id) == null) 
+            if (getByKey(id) == null) {
                 return true;
+            }
         }
         return false;
     }
-    
+
     public Trainer findById(int id) {
         Trainer s = getByKey(id);
-        if(s != null) {
+        if (s != null) {
             return s;
         }
         return null;
@@ -40,13 +43,14 @@ public class TrainerDaoImpl extends AbstractDao<Integer, Trainer> implements ITr
 
     public boolean update(Trainer trainer) {
         Trainer db_trainer = findById(trainer.getId());
-        if(trainer != null) {
+        if (trainer != null) {
             db_trainer.setFirstName(trainer.getFirstName());
             db_trainer.setLastName(trainer.getLastName());
             db_trainer.setSubject(trainer.getSubject());
             return save(db_trainer);
-        } else
+        } else {
             return false;
+        }
     }
-    
+
 }
