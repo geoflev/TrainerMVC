@@ -79,8 +79,7 @@ public class TrainerController {
         return("edittrainer");
     }
     
-    
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String updateTrainer(@Valid Trainer trainer, BindingResult result, ModelMap view) {
         
         if (result.hasErrors()) {

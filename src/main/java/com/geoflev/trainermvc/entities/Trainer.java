@@ -28,18 +28,18 @@ public class Trainer implements Serializable {
     
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
-    @Column(name = "firstName", nullable = false, length = 30)
+    @Size(min = 1, max = 45)
+    @Column(name = "firstName", nullable = false, length = 45)
     private String firstName;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
-    @Column(name = "lastName", nullable = false, length = 30)
+    @Size(min = 1, max = 45)
+    @Column(name = "lastName", nullable = false, length = 45)
     private String lastName;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
-    @Column(name = "subject", nullable = false, length = 30)
+    @Size(min = 1, max = 45)
+    @Column(name = "subject", nullable = false, length = 45)
     private String subject;
     
 

@@ -17,7 +17,7 @@
             td, th {
                 border: 1px solid #dddddd;
                 text-align: left;
-                padding: 8px;
+                padding: 6px;
             }
 
             tr:nth-child(even) {
@@ -30,30 +30,37 @@
             .header{
                 font-weight: bold;
             }
+            .btn{
+                display: block;
+                margin: auto;
+            }
+
         </style>
 
     </head>
     <body>
-        <h1>Trainers List</h1>
-        <table>
-            <tr class="header">
-                <td>ID</td><td>First Name</td><td>Last Name</td><td>Subject</td><td>Edit</td><td>Delete</td>
-            </tr>
-            <c:forEach items="${trainers}" var="trainer">
-                <tr>
-
-                    <td>${trainer.id}</td>
-                    <td>${trainer.firstName}</td>
-                    <td>${trainer.lastName}</td>
-                    <td>${trainer.subject}</td>
-                    <td><button type="submit" class="btn btn-warning"><a href="<c:url value='/${editurl}/${trainer.id}' /> ">Edit</a></button></td>
-                    <td><button type="submit" class="btn btn-danger"><a href="<c:url value='/${deleteurl}/${trainer.id}' />">Delete</a></button></td>
+        <div class="container">
+            <h1>Trainers List</h1>
+            <table>
+                <tr class="header">
+                    <td>ID</td><td>First Name</td><td>Last Name</td><td>Subject</td><td>Edit</td><td>Delete</td>
                 </tr>
-            </c:forEach>
-        </table>
-        </br>
-        </br>
-        <div id="msg">${msg}</div>
-        <button type="submit" class="btn btn-success"><a href="<c:url value='/new' />">Add</a></button>
+                <c:forEach items="${trainers}" var="trainer">
+                    <tr>
+
+                        <td>${trainer.id}</td>
+                        <td>${trainer.firstName}</td>
+                        <td>${trainer.lastName}</td>
+                        <td>${trainer.subject}</td>
+                        <td><button type="submit" class="btn btn-warning btn-sm" ><a href="<c:url value='/${editurl}/${trainer.id}' /> ">Edit</a></button></td>
+                        <td><button type="submit" class="btn btn-danger btn-sm" ><a href="<c:url value='/${deleteurl}/${trainer.id}' />">Delete</a></button></td>
+                    </tr>
+                </c:forEach>
+            </table>
+            </br>
+            </br>
+            <div id="msg">${msg}</div>
+            <button type="submit" class="btn btn-success btn-lg float-left"><a href="<c:url value='/new' />">Add</a></button>
+        </div>
     </body>
 </html>
