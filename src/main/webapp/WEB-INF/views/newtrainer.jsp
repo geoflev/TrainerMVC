@@ -58,23 +58,6 @@
                 <div style="float:right;" ><a href="<c:url value='/${listurl}' />">Back to the list of Trainers</a></div>
             </form:form>
         </div>
-
-        <script>
-            const firstname = document.getElementById("firstName")
-            const lastname = document.getElementById("lastName")
-            const form = document.getElementById("form")
-            const errorElement = document.getElementById("error")
-
-            form.addEventListener("submit", (e) => {
-                let messages = []
-                var letters = /^[a-zA-Z]+$/;
-                if ((!firstName.value.match(letters)) && ((firstName.value !== null) && (firstName.value !== ''))
-                        || (!lastName.value.match(letters)) && ((lastName.value !== null) && (lastName.value !== ''))) {
-                    e.preventDefault();
-                    messages.push("Invalid characters for fields First Name or Last Name ")
-                    errorElement.innerText = messages
-                }
-            })
-        </script>
+        <script src="${pageContext.request.contextPath}/static/css/JS.js"></script>
     </body>
 </html>
