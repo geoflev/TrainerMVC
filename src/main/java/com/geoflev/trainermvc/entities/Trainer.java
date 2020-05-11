@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "trainers", catalog = "school", schema = "")
+@Table(name = "trainers", catalog = "trainermvc", schema = "")
 @XmlRootElement
 
 public class Trainer implements Serializable {

@@ -6,61 +6,42 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Trainers List</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-        <style>
-            table {
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 6px;
-            }
-
-            tr:nth-child(even) {
-                background-color: #dddddd;
-            }
-            h1
-            {
-                text-align: center;
-            }
-            .header{
-                font-weight: bold;
-            }
-            .btn{
-                display: block;
-                margin: auto;
-            }
-
-        </style>
-
+        <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
+        <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
     </head>
     <body>
-        <div class="container">
-            <h1>Trainers List</h1>
-            <table>
-                <tr class="header">
-                    <td>ID</td><td>First Name</td><td>Last Name</td><td>Subject</td><td>Edit</td><td>Delete</td>
-                </tr>
-                <c:forEach items="${trainers}" var="trainer">
-                    <tr>
+        
+            <div class="generic-container">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><span class="lead">List of Trainers </span></div>
+                    <table class="table table-hover">
+                        <thead id="thead">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Subject</th>
+                                <th width="100"></th>
+                                <th width="100"></th>
 
-                        <td>${trainer.id}</td>
-                        <td>${trainer.firstName}</td>
-                        <td>${trainer.lastName}</td>
-                        <td>${trainer.subject}</td>
-                        <td><button type="submit" class="btn btn-warning btn-sm" ><a href="<c:url value='/${editurl}/${trainer.id}' /> ">Edit</a></button></td>
-                        <td><button type="submit" class="btn btn-danger btn-sm" ><a href="<c:url value='/${deleteurl}/${trainer.id}' />">Delete</a></button></td>
-                    </tr>
-                </c:forEach>
-            </table>
-            </br>
-            </br>
-            <div id="msg">${msg}</div>
-            <button type="submit" class="btn btn-success btn-lg float-left"><a href="<c:url value='/new' />">Add</a></button>
-        </div>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${trainers}" var="trainer">
+                                <tr>
+                                    <td>${trainer.firstName}</td>
+                                    <td>${trainer.lastName}</td>
+                                    <td>${trainer.subject}</td>
+                                    <td><a href="<c:url value='/${editurl}/${trainer.id}' />" class="btn btn-warning custom-width">Edit</a></td>
+                                    <td><a href="<c:url value='/${deleteurl}/${trainer.id}' />" class="btn btn-danger custom-width">Delete</a></td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="well">
+                    <td><a href="<c:url value='/new' />" class="btn btn-primary custom-width" id="submitbtn" >Add</a></td>
+                </div>
+            </div>
+        
     </body>
 </html>
